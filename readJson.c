@@ -374,5 +374,92 @@ void DisplayNext(int b, int a)
 	
 }
 
+void horizontalCompare(int day){
+	double temp=0;
+	printf("Location Information\t City name: %-20s", cI.cityName);
+	printf("Country: %-10s",cI.Country);
+	int timeZ=0;
+	timeZ = getTimezone(cI.timeZone);
+	printf("TimeZone: GMT%d:00\n\n",timeZ);
+	
+	printf("Date/Time:      ");
+	
+	for( int i=0;i<=day;i++){
+		printf("%-25s", cI.forecastInformation[0+(i*8)].time);
+	}
+	
+	printf("\nWeather:        ");
+	
+	for (int i=0;i<=day;i++){
+		printf("%-25s", cI.forecastInformation[0+(i*8)].weatherDes);
+	}
+	
+	printf("\nTemperature:    ");
+	
+	for (int i=0;i<=day;i++){
+		if(i==0){
+			temp= cI.forecastInformation[0].temperature;
+			
+			temp=temp-273.15;
+			
+			printf("%-3.0f°C                    ", temp);
+		}else {
+			if(cI.forecastInformation[0+(i*8)].temperature>cI.forecastInformation[0].temperature){
+			temp =cI.forecastInformation[0+(i*8)].temperature-cI.forecastInformation[0].temperature;
+			
+			printf("+%-3.0f°C                   ", temp);
+			}else{
+				temp =cI.forecastInformation[0+(i*8)].temperature-cI.forecastInformation[0].temperature;
+			
+			printf("%-3.0f°C                    ", temp);
+			}
+			
+		}
+	}
+	
+	
+	
+	
+}
+
+
+void findMaxTemperature(int day){
+	double temp;
+	double current;
+	double maxTemp;
+	int maxIndex;
+	int totalNum=day*8;
+	double all[totalNum];
+	
+	for(int i=0;i<totalNum;i++){
+		temp=cI.forecastInformation[i].temperature;
+		temp=temp-273.15;
+		all[i]=temp;
+	}
+	current=all[0];
+	maxTemp=all[0];
+	maxIndex=0;
+	for(int i=0;i<totalNum;i++){
+		current=all[i];
+		if(current>maxTemp){
+			maxTemp=current;
+			maxIndex=i;
+		}
+	
+	}
+	
+	printf("The information about the highest temperature of the next %d days(include today) is:", day);
+	printf("\nDate/Time:      ");
+	printf("%-25s", cI.forecastInformation[maxIndex].time);
+	printf("\nWeather:        ");
+	printf("%-25s", cI.forecastInformation[maxIndex].weatherDes);
+	printf("\nTemperature:    ");
+	printf("%-3.0f°C                    ", maxTemp);
+	
+	
+	
+}
+
+
 
 
