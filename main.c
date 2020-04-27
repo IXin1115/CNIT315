@@ -14,7 +14,7 @@ int main(){
    DisplayData();
 
 
-  int cases, next,initial;
+  int cases, next,initial,days,input2,again2;
    initial = 5;
    next = 10;
    
@@ -25,6 +25,8 @@ int main(){
    	 printf("\n2. Display the informaion for next 5 times");
    	 printf("\n3. Search the weather you want.");
    	 printf("\n4. Display the mode temperature.");
+   	 printf("\n5. horizontal compare.");
+   	 printf("\n6. search the max weather.");
    	 printf("\n7. Exit the program\n");
    	 
   	 printf("\nYour choice: ");
@@ -61,9 +63,28 @@ int main(){
    		break;
    		
    		case 5:
+   		
+   		printf("\n input the days you want to compare.");
+   		scanf("%d",&days);
+   		horizontalCompare(days);
    		break;
    		
    		case 6:
+	   	do{
+	   
+	   	printf("Please input the range(number of days)to find the highest temperature(up to 5 days which includes today): ");
+	   	scanf("%d",&input2);
+	   	if(input2<0 ||input2>5){
+	   	printf("Invalid input! Do you want to have another try? (1 for try again, other numbers back to the main menu.");
+	  	scanf("%d", &again2);
+			if(again2==1){
+		   	break;
+		}	
+	 	}
+	   
+	   
+		}while(again2==1);
+	   	findMaxTemperature(input2);
    		break;
    		
    		

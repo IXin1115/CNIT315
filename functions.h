@@ -10,5 +10,6 @@ void CalculateAverageTemp();
 void DisplayNext();
 void CalculateAverageTemp();
 void DisplayNext();
-
+void horizontalCompare();
+void findMaxTemperature();
 #endif
