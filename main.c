@@ -23,7 +23,8 @@ int main(){
    	 printf("\nPlease choose from the following options");
    	 printf("\n1. Display the average temperature for next 24 hours:");
    	 printf("\n2. Display the informaion for next 5 times");
-   	 
+   	 printf("\n3. Search the weather you want.");
+   	 printf("\n4. Display the mode temperature.");
    	 printf("\n7. Exit the program\n");
    	 
   	 printf("\nYour choice: ");
@@ -49,6 +50,20 @@ int main(){
    		{
    			printf("There are no more data to be displayed\n");
    		}
+   		break;
+   		
+   		case 3:
+   		CheckWeather();
+   		break;
+   		
+   		case 4:
+   		modeTemperature();
+   		break;
+   		
+   		case 5:
+   		break;
+   		
+   		case 6:
    		break;
    		
    		

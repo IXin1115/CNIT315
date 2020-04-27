@@ -269,7 +269,6 @@ int maxValue = 0, maxCount = 0, i, j;
 
    modeTem = maxValue;
 printf("The mode temperature is %-3.0f°C                    \n", modeTem);
-}
 	 printf("\n");
 
 }
